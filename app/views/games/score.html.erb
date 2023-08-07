@@ -1,0 +1,18 @@
+<div class="container">
+<h1 class="tex-center my-4">Results</h1>
+  <div class="row justify-content-center bg-light">
+    <div class="col-8 fs-3">your word: <%= params[:word] %></div>
+    <%if @english_word && @valid_word %>
+       <div class="col-8 fs-3"> <%="congratulations your score is: #{(params[:word].size * 100) / @total_time.to_i}"%></div>
+      <% elsif !@valid_word  %>
+       <div class="col-8 fs-3">Sorry, your word is is not constructed using the given letters</div>
+      <% elsif !@english_word %>
+      <div class="col-8 fs-3"> <%="Sorry, #{params[:word]} is not an English word"%></div>
+      <% end %>
+  </div>
+  <div class="mt-3">
+    <p>
+      <%= link_to 'Play again', new_path, class: 'btn btn-info'  %>
+    </p>
+  </div>
+</div>

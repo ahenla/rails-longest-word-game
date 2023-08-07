@@ -1,0 +1,19 @@
+<div class="container">
+<h1 class="tex-center my-4">New Game</h1>
+  <div class="row justify-content-center">
+  <% @letters.each do |letter| %>
+    <div class="col-1 bg-primary text-light m-2 text-center fs-2 rounded"><%= letter %></div>
+  <% end %>
+  <div class="col-8 mt-4">
+    <form action="/score" method="post" data-turbo="false">
+    <div class="input-group">
+      <input type="text" class="form-control" name="word" placeholder="Your answer">
+      <button class="btn btn-success" type="submit" >Enter</button>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :start_time, @start_time%>
+      <%= hidden_field_tag :letters, @letters %>
+    </div>
+    </form>
+  </div>
+  </div>
+</div>
