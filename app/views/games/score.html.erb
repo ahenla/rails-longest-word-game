@@ -1,13 +1,13 @@
 <div class="container">
 <h1 class="tex-center my-4">Results</h1>
-  <div class="row justify-content-center bg-light">
-    <div class="col-8 fs-3">your word: <%= params[:word] %></div>
+  <div class="row justify-content-center bg-light p-5">
+    <div class="col-10 fs-4 pb-3">Your word: <strong><%= params[:word] %></strong></div>
     <%if @english_word && @valid_word %>
-       <div class="col-8 fs-3"> <%="congratulations your score is: #{(params[:word].size * 100) / @total_time.to_i}"%></div>
+       <div class="col-8 fs-4 bg-success text-light p-4 rounded"> <%="congratulations your score is: #{(params[:word].size * 100) / @total_time.to_i} points"%></div>
       <% elsif !@valid_word  %>
-       <div class="col-8 fs-3">Sorry, your word is is not constructed using the given letters</div>
+       <div class="col-8 fs-4 bg-danger text-light p-4 rounded">Sorry, your word is is not constructed using the given letters</div>
       <% elsif !@english_word %>
-      <div class="col-8 fs-3"> <%="Sorry, #{params[:word]} is not an English word"%></div>
+      <div class="col-8 fs-4 bg-danger text-light p-4 rounded"> <%="Sorry, #{params[:word]} is not an English word"%></div>
       <% end %>
   </div>
   <div class="mt-3">
